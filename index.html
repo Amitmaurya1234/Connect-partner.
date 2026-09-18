@@ -476,13 +476,15 @@
 
       const { error } = await supabaseClient.from(TABLE_NAME).insert([row]);
       if(error){
-        errEl.textContent = 'Could not save. Try again.';
-        errEl.style.display = 'block';
-        btn.textContent = 'Submit & Activate';
-        btn.disabled = false;
-        console.error(error);
-        return;
-      }
+  alert(JSON.stringify(error));
+
+  errEl.textContent = 'Could not save. Try again.';
+  errEl.style.display = 'block';
+  btn.textContent = 'Submit & Activate';
+  btn.disabled = false;
+  console.error(error);
+  return;
+}
       showScreen('thanks');
     } catch(err){
       errEl.textContent = 'Something went wrong. Try again.';
